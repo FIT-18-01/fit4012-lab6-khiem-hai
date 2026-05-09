@@ -1,5 +1,6 @@
 import os
 import socket
+import time
 from pathlib import Path
 
 from aes_socket_utils import build_data_packet, build_key_packet, encrypt_aes_cbc
@@ -24,11 +25,24 @@ def get_plaintext() -> bytes:
 
 
 def send_packet(host: str, port: int, packet: bytes) -> None:
-    """Open one TCP connection and send all bytes."""
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        sock.settimeout(TIMEOUT)
-        sock.connect((host, port))
-        sock.sendall(packet)
+    """Mở kết nối TCP và gửi dữ liệu, có cơ chế thử lại nếu bị từ chối."""
+    max_retries = 5
+    retry_delay = 1  
+    
+    for i in range(max_retries):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                sock.settimeout(TIMEOUT)
+                sock.connect((host, port))
+                sock.sendall(packet)
+                return 
+        except (ConnectionRefusedError, socket.timeout) as e:
+            if i < max_retries - 1:
+                print(f"[!] Cong {port} chua san sang, dang thu lai lan {i+1}...", flush=True)
+                time.sleep(retry_delay)
+            else:
+                print(f"[X] Loi ket noi sau {max_retries} lan thu: {e}", flush=True)
+                raise 
 
 
 def main() -> None:
