@@ -60,18 +60,18 @@ def receive_data_packet() -> bytes:
 def main() -> None:
     lines = []
 
-    line = f"[*] Receiver dang lang nghe kenh khoa tai {HOST}:{KEY_PORT}"
+    line = f"[*] Receiver đang lắng nghe kênh khóa tại {HOST}:{KEY_PORT}"
     print(line, flush=True) 
     lines.append(line)
 
     key_packet = receive_key_packet()
     key, iv = parse_key_packet(key_packet)
 
-    line = "[+] Da nhan AES key va IV."
+    line = "[+] Đã nhận AES key và IV."
     print(line, flush=True)
     lines.append(line)
 
-    line = f"[*] Receiver dang lang nghe kenh du lieu tai {HOST}:{DATA_PORT}"
+    line = f"[*] Receiver đang lắng nghe kênh dữ liệu tại {HOST}:{DATA_PORT}"
     print(line, flush=True)
     lines.append(line)
 
