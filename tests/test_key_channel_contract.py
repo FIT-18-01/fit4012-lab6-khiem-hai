@@ -31,4 +31,3 @@ def test_key_channel_contract_aes_256():
 def test_invalid_key_size_should_fail():
     with pytest.raises(ValueError):
         build_key_packet(b"short", b"b" * 16)
-

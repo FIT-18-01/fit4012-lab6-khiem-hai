@@ -37,4 +37,3 @@ def test_data_packet_contains_correct_length():
     length = parse_length_header(packet[:4])
     assert length == len(cipher_bytes)
     assert packet[4:] == cipher_bytes
-

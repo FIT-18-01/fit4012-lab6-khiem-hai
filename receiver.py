@@ -1,13 +1,6 @@
 import os
 import socket
-import sys
 from pathlib import Path
-
-# Ensure UTF-8 stdout before any prints so Windows subprocess text=True decodes correctly
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
 
 from aes_socket_utils import (
     LENGTH_HEADER_SIZE,
@@ -60,9 +53,8 @@ def receive_data_packet() -> bytes:
 
 
 def main() -> None:
-    lines: list[str] = []
+    lines = []
 
-    # Keep exact substring expected by tests: "kênh khóa"
     line = f"[*] Receiver đang lắng nghe kênh khóa tại {HOST}:{KEY_PORT}"
     print(line)
     lines.append(line)
@@ -110,4 +102,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

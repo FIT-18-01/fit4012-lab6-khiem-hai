@@ -15,4 +15,3 @@ def test_tampered_ciphertext_should_fail_or_change_plaintext():
         assert recovered != plain
     except ValueError:
         assert True
-
