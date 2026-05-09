@@ -90,12 +90,12 @@ def main() -> None:
     message = plaintext.decode("utf-8", errors="replace")
 
     lines.extend([
-        "[+] Giai ma thanh cong.",
-        f"[+] Ban tin goc: {message}",
+        "[+] Đã giải mã thành công.",
+        f"[+] Bản tin gốc: {message}",
     ])
 
-    print("[+] Giai ma thanh cong.", flush=True)
-    print(f"[+] Ban tin goc: {message}", flush=True)
+    print("[+] Đã giải mã thành công.", flush=True)
+    print(f"[+] Bản tin gốc: {message}", flush=True)
 
     if OUTPUT_FILE:
         Path(OUTPUT_FILE).write_bytes(plaintext)
