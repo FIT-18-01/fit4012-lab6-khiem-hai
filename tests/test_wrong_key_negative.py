@@ -1,6 +1,3 @@
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from aes_socket_utils import decrypt_aes_cbc, encrypt_aes_cbc
 
 
