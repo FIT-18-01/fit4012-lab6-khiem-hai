@@ -20,3 +20,4 @@ def test_empty_ciphertext_should_fail():
 def test_bad_length_header_should_fail():
     with pytest.raises(ValueError):
         parse_length_header(b"\x00\x01")
+

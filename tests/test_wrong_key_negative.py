@@ -14,3 +14,4 @@ def test_wrong_key_should_not_recover_original_plaintext():
         assert recovered != plain
     except ValueError:
         assert True
+

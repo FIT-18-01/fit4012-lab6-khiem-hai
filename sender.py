@@ -1,5 +1,6 @@
 import os
 import socket
+import sys
 from pathlib import Path
 
 from aes_socket_utils import build_data_packet, build_key_packet, encrypt_aes_cbc
@@ -41,6 +42,12 @@ def main() -> None:
     send_packet(SERVER_IP, KEY_PORT, key_packet)
     send_packet(SERVER_IP, DATA_PORT, data_packet)
 
+    # Ensure UTF-8 output to avoid Windows cp1252 UnicodeEncodeError
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
     lines = [
         "[+] Đã tạo AES key và IV.",
         "[+] Đã gửi key/IV qua kênh khóa.",
@@ -66,3 +73,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
