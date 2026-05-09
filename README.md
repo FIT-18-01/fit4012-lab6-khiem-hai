@@ -16,14 +16,16 @@ Lab này kế thừa ý tưởng từ Lab 3 DES Socket, nhưng nâng cấp theo 
 
 ## Team members
 
-- **Thành viên 1**: TODO_MEMBER_1 - MSSV: TODO_MEMBER_1_ID
-- **Thành viên 2**: TODO_MEMBER_2 - MSSV: TODO_MEMBER_2_ID
+- **Thành viên 1**: Trần Đình Khiêm - MSSV: 1871020334
+- **Thành viên 2**: La Văn Hải - MSSV: 1871020215
 
 ## Task division
 
-- **Thành viên 1 phụ trách chính**: TODO_ROLE_MEMBER_1
-- **Thành viên 2 phụ trách chính**: TODO_ROLE_MEMBER_2
-- **Phần làm chung**: TODO_SHARED_WORK
+Trần Đình Khiêm: Phụ trách lập trình sender.py, xây dựng module mã hóa aes_socket_utils.py và viết hệ thống tests/ để kiểm thử các trường hợp lỗi padding/sai key.
+
+La Văn Hải: Phụ trách lập trình receiver.py, xử lý đa luồng socket, quản lý hệ thống logs và hoàn thiện báo cáo threat-model-1page.md.
+
+Phần làm chung: Thiết kế cấu trúc giao thức (protocol header), thực hiện demo chạy thực tế và phản hồi peer-review.
 
 ## Demo roles
 
